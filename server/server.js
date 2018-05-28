@@ -1,3 +1,5 @@
+require('./models/Guest');
+
 require('dotenv').config({ path: '../.env' });
 
 const express = require('express');
@@ -8,7 +10,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const errorHandlers = require('./handlers/errorHandlers');
 const mongoose = require('mongoose');
-console.log(process.env.DATABASE);
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {
